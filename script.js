@@ -84,6 +84,31 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentActive) updateIndicator(currentActive);
     });
 
+    // Mobile nav toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.main-nav');
+    const navOverlay = document.querySelector('.nav-overlay');
+
+    function toggleNav(open) {
+        navToggle.classList.toggle('open', open);
+        nav.classList.toggle('open', open);
+        navOverlay.classList.toggle('open', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    if (navToggle) {
+        navToggle.addEventListener('click', () => toggleNav(!nav.classList.contains('open')));
+    }
+
+    if (navOverlay) {
+        navOverlay.addEventListener('click', () => toggleNav(false));
+    }
+
+    // Close nav on link click
+    document.querySelectorAll('.main-nav a').forEach(link => {
+        link.addEventListener('click', () => toggleNav(false));
+    });
+
     // Smooth scroll for nav links (handled by CSS, but this ensures it works everywhere)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
