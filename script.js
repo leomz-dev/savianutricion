@@ -3,11 +3,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const formFeedback = document.getElementById('formFeedback');
 
     if (contactForm) {
+        const submitBtn = contactForm.querySelector('.btn-submit');
+        const privacyCheck = document.getElementById('privacy');
+
+        function updateSubmitButton() {
+            submitBtn.disabled = !privacyCheck.checked;
+        }
+
+        if (privacyCheck) {
+            privacyCheck.addEventListener('change', updateSubmitButton);
+        }
+
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
             // Show loading state
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalBtnHTML = submitBtn.innerHTML;
             submitBtn.innerHTML = '<div style="background: #222; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;"><i class="fa-solid fa-spinner fa-spin"></i></div> enviando...';
             submitBtn.disabled = true;
@@ -33,6 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     formFeedback.classList.remove('hidden');
                     
                     contactForm.reset();
+                    privacyCheck.checked = false;
+                    updateSubmitButton();
                 } else {
                     throw new Error('Error al enviar el formulario');
                 }
@@ -43,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 formFeedback.classList.remove('hidden');
             } finally {
                 submitBtn.innerHTML = originalBtnHTML;
-                submitBtn.disabled = false;
+                submitBtn.disabled = !privacyCheck.checked;
             }
         });
     }

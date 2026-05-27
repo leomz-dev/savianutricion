@@ -1070,3 +1070,57 @@ section {
 .contact-form-side-modern textarea::placeholder {
     color: rgba(255, 255, 255, 0.7);
 }
+
+.privacy-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 24px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.privacy-checkbox input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    min-width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.privacy-checkbox input[type="checkbox"]:checked {
+    background: white;
+    border-color: white;
+}
+
+.privacy-checkbox input[type="checkbox"]:checked::after {
+    content: "✓";
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.btn-submit:not(:disabled) {
+    background: white !important;
+    color: var(--color-neutral-dark) !important;
+    cursor: pointer !important;
+}
+
+.btn-submit:not(:disabled):hover {
+    background: #f0f0f0 !important;
+    transform: translateY(-2px);
+}
+
+.btn-submit:disabled {
+    opacity: 0.6;
+}
