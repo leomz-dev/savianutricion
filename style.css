@@ -555,7 +555,16 @@ section {
 }
 
 /* Responsive */
+/* Responsive - Tablet landscape */
 @media (max-width: 1024px) {
+    :root {
+        --fs-h1: 3rem;
+        --fs-h2: 2.5rem;
+    }
+
+    section {
+        padding: 80px 0;
+    }
 
     .hero-grid,
     .contact-flex {
@@ -563,61 +572,382 @@ section {
         gap: 60px;
         text-align: center;
     }
-    
-    .contact-card-modern {
-        grid-template-columns: 1fr;
-    }
-    
-    .contact-details-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .contact-form-side-modern {
-        padding: 40px;
-        margin: 16px;
-    }
 
-    .hero-content h1 {
-        font-size: 3rem;
+    .hero-content p {
+        margin: 0 auto 40px;
+        max-width: 100%;
     }
 
     .hero-ctas {
         justify-content: center;
     }
 
-    .hero-content p {
-        margin: 0 auto 40px;
+    .badge-top-left {
+        top: 20px;
+        left: 10px;
+    }
+
+    .badge-bottom-right {
+        bottom: 20px;
+        right: 10px;
+    }
+
+    .contact-card-modern {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-details-grid > div:last-child {
+        grid-column: span 1;
+    }
+
+    .contact-form-side-modern {
+        padding: 40px;
+        margin: 16px;
     }
 
     .testimonials-grid {
         grid-template-columns: 1fr 1fr;
     }
-
-    .contact-info {
-        text-align: left;
-    }
 }
 
+/* Responsive - Tablet portrait & small screens */
 @media (max-width: 768px) {
+    :root {
+        --fs-h1: 2.5rem;
+        --fs-h2: 2rem;
+        --fs-h3: 1.3rem;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        margin-bottom: 40px;
+    }
+
     .main-header .container {
         flex-direction: column;
-        gap: 20px;
+        gap: 16px;
+        padding: 10px 20px;
+    }
+
+    .logo img {
+        height: 50px;
     }
 
     .main-nav ul {
-        gap: 20px;
+        gap: 24px;
+    }
+
+    .hero {
+        padding: 60px 0;
+    }
+
+    .hero-grid {
+        gap: 40px;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    .hero-image {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .badge {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+
+    .badge-top-left {
+        top: 10px;
+        left: -5px;
+    }
+
+    .badge-bottom-right {
+        bottom: 10px;
+        right: -5px;
     }
 
     .testimonials-grid {
         grid-template-columns: 1fr;
     }
 
-    .section-title {
-        font-size: 2.2rem;
+    .testimonial-card {
+        padding: 32px;
+    }
+
+    .testimonial-card p {
+        font-size: 1rem;
+    }
+
+    .contact-info {
+        text-align: left;
+        padding: 40px !important;
+    }
+
+    .contact-info h2 {
+        font-size: 2.2rem !important;
+    }
+
+    .contact-form-side-modern {
+        padding: 32px;
+        margin: 12px;
     }
 
     .contact-form-card {
         padding: 40px 20px;
+    }
+
+    .empathy-grid,
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .card {
+        padding: 32px;
+    }
+
+    .empathy-card p {
+        font-size: 1rem;
+    }
+
+    .main-footer {
+        padding: 40px 24px !important;
+        margin: 0 12px !important;
+        border-radius: 16px 16px 0 0 !important;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 32px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-copyright p {
+        max-width: 100% !important;
+    }
+
+    .footer-links {
+        justify-content: center;
+    }
+
+    .btn {
+        padding: 14px 28px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 480px) {
+    :root {
+        --fs-h1: 2rem;
+        --fs-h2: 1.7rem;
+        --fs-body: 1rem;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+
+    section {
+        padding: 48px 0;
+    }
+
+    .section-title {
+        margin-bottom: 32px;
+    }
+
+    .main-header .container {
+        padding: 8px 16px;
+        gap: 12px;
+    }
+
+    .logo img {
+        height: 42px;
+    }
+
+    .main-nav ul {
+        gap: 16px;
+    }
+
+    .main-nav a {
+        font-size: 0.9rem;
+    }
+
+    .hero {
+        padding: 40px 0;
+    }
+
+    .hero-grid {
+        gap: 32px;
+    }
+
+    .hero-content h1 {
+        font-size: var(--fs-h1);
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        margin-bottom: 32px;
+    }
+
+    .hero-ctas {
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+    }
+
+    .hero-ctas .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .hero-image {
+        max-width: 300px;
+    }
+
+    .badge {
+        padding: 6px 12px;
+        font-size: 0.7rem;
+        gap: 6px;
+    }
+
+    .badge-top-left {
+        top: 5px;
+        left: 0;
+    }
+
+    .badge-bottom-right {
+        bottom: 5px;
+        right: 0;
+    }
+
+    .badge-icon-stack {
+        font-size: 1rem;
+    }
+
+    .empathy-grid,
+    .services-grid {
+        gap: 16px;
+    }
+
+    .card {
+        padding: 24px;
+        border-radius: 24px;
+    }
+
+    .card-icon-wrapper {
+        width: 52px;
+        height: 52px;
+        font-size: 1.2rem;
+        margin-bottom: 16px;
+    }
+
+    .testimonials-grid {
+        gap: 20px;
+    }
+
+    .testimonial-card {
+        padding: 24px;
+    }
+
+    .contact-card-modern {
+        border-radius: 24px;
+    }
+
+    .contact-info {
+        padding: 24px !important;
+    }
+
+    .contact-info h2 {
+        font-size: 1.8rem !important;
+    }
+
+    .contact-form-side-modern {
+        padding: 24px;
+        margin: 8px;
+        border-radius: 28px;
+    }
+
+    .contact-form-side-modern input,
+    .contact-form-side-modern select,
+    .contact-form-side-modern textarea {
+        padding: 14px 16px !important;
+        font-size: 0.95rem;
+    }
+
+    .contact-details-grid {
+        gap: 16px;
+    }
+
+    .contact-details-grid div {
+        gap: 10px !important;
+    }
+
+    .contact-details-grid div div {
+        width: 34px !important;
+        height: 34px !important;
+        font-size: 0.8rem;
+    }
+
+    .contact-details-grid span {
+        font-size: 0.8rem !important;
+    }
+
+    .main-footer {
+        padding: 32px 20px !important;
+        margin: 0 8px !important;
+        border-radius: 12px 12px 0 0 !important;
+    }
+
+    .footer-content {
+        gap: 24px;
+    }
+
+    .footer-logo h2 {
+        font-size: 1.5rem !important;
+    }
+
+    .footer-copyright p {
+        font-size: 0.8rem !important;
+    }
+
+    .footer-links {
+        gap: 24px !important;
+    }
+
+    .footer-links a {
+        font-size: 0.8rem !important;
+    }
+
+    .empathy p {
+        font-size: 0.95rem !important;
+        margin-top: -24px !important;
+        margin-bottom: 32px !important;
+    }
+
+    .services-grid .btn {
+        font-size: 0.85rem !important;
+        padding: 8px 20px !important;
+    }
+
+    .form-feedback {
+        font-size: 0.9rem;
+        padding: 16px;
     }
 }
 
