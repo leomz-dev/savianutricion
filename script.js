@@ -27,6 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = Object.fromEntries(formData.entries());
 
             // Send to Formspree
+            // SECURITY NOTE: To prevent unauthorized use of this endpoint, 
+            // ensure you have "Domain Restriction" enabled in your Formspree dashboard.
             try {
                 const response = await fetch('https://formspree.io/f/mqejgnez', {
                     method: 'POST',
