@@ -57,12 +57,16 @@ h3 {
 
 .container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: auto auto; /* margin-top/bottom auto to center safely in flex column, left/right auto to center horizontally */
     padding: 0 32px;
+    width: 100%;
 }
 
 section {
-    padding: 100px 0;
+    padding: 40px 0;
+    min-height: calc(100vh - 70px);
+    display: flex;
+    flex-direction: column;
 }
 
 .section-title {
@@ -75,7 +79,7 @@ section {
 /* Header */
 .main-header {
     background-color: #F8FBF8;
-    padding: 15px 0;
+    padding: 8px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -88,8 +92,7 @@ section {
 }
 
 .logo img {
-    height: 60px;
-    /* Much larger logo */
+    height: 50px;
     width: auto;
     display: block;
     transition: transform 0.3s ease;
@@ -227,10 +230,6 @@ section {
 /* Hero */
 .hero {
     background-color: #F8FBF8;
-    padding: 100px 0;
-    min-height: auto;
-    display: flex;
-    align-items: center;
 }
 
 .hero-grid {
@@ -509,10 +508,10 @@ section {
 
 .contact-form-side-modern {
     background: var(--color-primary);
-    padding: 60px;
+    padding: 40px;
     color: white;
     border-radius: 40px;
-    margin: 24px;
+    margin: 16px;
 }
 
 .contact-form-card label {
@@ -555,6 +554,83 @@ section {
     font-size: 0.95rem;
     font-weight: 400;
     margin-bottom: 0;
+}
+
+.form-feedback {
+    margin-top: 16px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 12px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.form-feedback.success {
+    background-color: rgba(34, 197, 94, 0.2);
+    color: #fff;
+}
+
+.form-feedback.error {
+    background-color: rgba(239, 68, 68, 0.2);
+    color: #fff;
+}
+
+.form-feedback.hidden {
+    display: none;
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-content {
+    background: var(--color-white);
+    padding: 40px;
+    border-radius: 24px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.hidden .modal-content {
+    transform: translateY(20px);
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.3s;
+    line-height: 1;
+}
+
+.close-modal:hover {
+    color: var(--color-neutral-dark);
 }
 
 /* Footer */
